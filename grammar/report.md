@@ -6,7 +6,7 @@
 ----
 
 ## Theory
-If needed, but it should be written by the author in her/his words.
+Finite automata are abstract machines used to recognize patterns in input sequences, forming the basis for understanding regular languages in computer science. They consist of states, transitions, and input symbols, processing each symbol step-by-step. If the machine ends in an accepting state after processing the input, it is accepted; otherwise, it is rejected. Finite automata come in deterministic (DFA) and non-deterministic (NFA), both of which can recognize the same set of regular languages. They are widely used in text processing, compilers, and network protocols.
 
 
 ## Objectives:
@@ -43,7 +43,7 @@ I utilized a recursive backtracking approach. Because my grammar has only one va
 Also because of its nature it works with any grammar.
 Here is the main method:
 
-```python
+```py
     def getStrings(self):
         result_strs = set()
         size = 5
@@ -73,7 +73,7 @@ Here is the main method:
 
 Here, I used a recursive backtracking approach again. We check every single choice we have from the first one. If none of them are equal to the current index of the word we need to create, that means the word cannot be created with this grammar. However, if one of them is equal to the value at the current index of the needed string, we check that path. We increase the index of the string, then check if any of the next possibilities have the current index value of the needed string, and so on. It checks all possibilities, and if none are found, it's returned as False. If at least one is True, we return True.
 
-```
+```py
     def checkStr(self, check_str):        
         def iter(grammar_str, i, path_str, NT):
             if i > len(check_str) - 1:
@@ -97,6 +97,8 @@ Here, I used a recursive backtracking approach again. We check every single choi
 
 ## Conclusions / Screenshots / Results
 
+In conclusion, the laboratory work was pretty challenging, I had to research different methods to parse grammar and chose interative backtracking, which is a really great fondation for a more complex grammar.
+
 * checking string: `acabba`
 
 ```
@@ -107,5 +109,7 @@ B: ['aB', 'b']
 True
 ```
 
-
 ## References
+
+https://www.geeksforgeeks.org
+https://stackoverflow.com/
