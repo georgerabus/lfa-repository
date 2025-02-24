@@ -39,7 +39,7 @@ d. For the Finite Automaton, please add a method that checks if an input string 
 
 * Code snippets from your files.
 
-I utilized a recursive backtracking approach. Because my grammar has only one valid string, I had to utilize this approach in order to get 5 strings. My method can generate all of the strings until n recursions, or until the stack of the computer manages.
+I utilized a recursive backtracking approach. Because my grammar has only one valid string. My method can generate all of the strings until n recursions, or until the stack of the computer manages.
 Also because of its nature it works with any grammar.
 Here is the main method:
 
