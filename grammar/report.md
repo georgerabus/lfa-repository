@@ -43,7 +43,7 @@ I utilized a recursive backtracking approach. Because my grammar has only one va
 Also because of its nature it works with any grammar.
 Here is the main method:
 
-```
+```python
     def getStrings(self):
         result_strs = set()
         size = 5

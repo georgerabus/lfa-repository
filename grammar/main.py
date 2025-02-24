@@ -36,7 +36,7 @@ class Grammar:
                     if self.parsed_grammar.get(char):
                         visited.setdefault(char, 0)
                         visited[char] += 1
-                        if visited[char] < 3: 
+                        if visited[char] < 4: 
                             iter(self.parsed_grammar[char], result_str.copy(), visited.copy(), char)
                         result_str.pop()
                     else:
@@ -99,7 +99,7 @@ def main():
     B → aB   
     B → b
     """
-    
+
     grammar = Grammar(production)
     grammar.setStartSybol(start_symbol)
     grammar.addEndSymbols(end_symbols)
