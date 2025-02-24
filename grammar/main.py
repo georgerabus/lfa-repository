@@ -55,8 +55,8 @@ class Grammar:
 
 class FiniteAutomaton:
     def __init__(self, grammar):
-        cGrammar = Grammar(grammar)
-        self.parsed_grammar = cGrammar.parseGrammar(grammar)
+        mygrammar = Grammar(grammar)
+        self.parsed_grammar = mygrammar.parseGrammar(grammar)
         self.start_symbol = "Add a start symbol"
         self.end_symbols = []
 
@@ -92,13 +92,14 @@ def main():
 
     production = """
     S → aA     
-    A → bS    
     S → bB   
+    A → bS    
     A → cA    
     A → aB  
     B → aB   
     B → b
     """
+    
     grammar = Grammar(production)
     grammar.setStartSybol(start_symbol)
     grammar.addEndSymbols(end_symbols)
@@ -109,7 +110,7 @@ def main():
     automaton = FiniteAutomaton(production)
     automaton.setStartSybol(start_symbol)
     automaton.addEndSymbols(end_symbols)
-    print(automaton.checkStr("ababbb")) 
+    print(automaton.checkStr("acabba")) 
 
 if __name__ == "__main__":
     main()

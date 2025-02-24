@@ -39,17 +39,73 @@ d. For the Finite Automaton, please add a method that checks if an input string 
 
 * Code snippets from your files.
 
-```
-public static void main() 
-{
+I utilized a recursive backtracking approach. Because my grammar has only one valid string, I had to utilize this approach in order to get 5 strings. My method can generate all of the strings until n recursions, or until the stack of the computer manages.
+Also because of its nature it works with any grammar.
+Here is the main method:
 
-}
+```
+    def getStrings(self):
+        result_strs = set()
+        size = 5
+        def iter(grammar_str, result_str, visited, NT):
+            if len(result_strs) == size:
+                return
+            
+            for chars in grammar_str:
+                for char in chars:
+                    if self.parsed_grammar.get(char):
+                        visited.setdefault(char, 0)
+                        visited[char] += 1
+                        if visited[char] < 3: 
+                            iter(self.parsed_grammar[char], result_str.copy(), visited.copy(), char)
+                        result_str.pop()
+                    else:
+                        result_str.append(char)
+            if len(result_strs) == size:
+                return
+            if NT in self.end_symbols:
+                result_strs.add("".join(result_str))
+                
+        iter(self.parsed_grammar[self.start_symbol], [], {}, self.start_symbol)
+        return result_strs
+```
+
+
+Here, I used a recursive backtracking approach again. We check every single choice we have from the first one. If none of them are equal to the current index of the word we need to create, that means the word cannot be created with this grammar. However, if one of them is equal to the value at the current index of the needed string, we check that path. We increase the index of the string, then check if any of the next possibilities have the current index value of the needed string, and so on. It checks all possibilities, and if none are found, it's returned as False. If at least one is True, we return True.
+
+```
+    def checkStr(self, check_str):        
+        def iter(grammar_str, i, path_str, NT):
+            if i > len(check_str) - 1:
+                return path_str == check_str
+            
+            for chars in grammar_str:
+                if len(chars) == 1:
+                    if chars == check_str[i]:
+                        return iter(self.parsed_grammar[NT], i + 1, path_str + chars, NT)
+                else:
+                    if chars[0] == check_str[i]:
+                        if iter(self.parsed_grammar[chars[1]], i + 1, path_str + chars[0], chars[1]):
+                            return True
+            return False
+        
+        return iter(self.parsed_grammar[self.start_symbol], 0, "", self.start_symbol)
 ```
 
 * If needed, screenshots.
 
 
 ## Conclusions / Screenshots / Results
+
+* checking string: `acabba`
+
+```
+S: ['aA', 'bB']
+A: ['bS', 'cA', 'aB']
+B: ['aB', 'b']
+{'abaaab', 'ababbab', 'abaab', 'ababbb', 'abbab'}
+True
+```
 
 
 ## References
