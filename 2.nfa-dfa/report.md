@@ -52,9 +52,9 @@ The `FiniteAutomaton` class consists of:
   - δ(q0, a) = q1  
   - δ(q1, b) = q2  
   - δ(q1, a) = q3
+  - δ(q1, a) = q1  
   - δ(q0, b) = q2  
   - δ(q2, b) = q3
-  - δ(q1, a) = q1  
 
 ### Why is the Automaton an NDFA?  
 An automaton is **non-deterministic** (NDFA) if:  
