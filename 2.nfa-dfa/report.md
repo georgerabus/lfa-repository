@@ -103,9 +103,9 @@ def convert_to_dfa(Alphabet, Transitions):
 Converts a Non-Deterministic Finite Automaton (NDFA) to a Deterministic Finite Automaton (DFA) by creating new states that represent combinations of NDFA states and defining transitions between them. This process ensures the DFA behaves equivalently to the original NDFA, enabling deterministic processing of input strings. It is a key step in simplifying automata for analysis and implementation. By systematically exploring all possible state combinations, it guarantees that the resulting DFA is both complete and accurate. This method is fundamental for automata theory and practical applications like lexical analysis in compilers.
 
 
-<!-- 
-![Console results](/Images/Console2.png)
---- -->
+
+![Console results](/Images/nfa-dfa.png)
+---
 
 ## Conclusion  
 This project demonstrates how formal languages and finite automata work together to define structured word formation and validation. By implementing a grammar-based generator and a basic automaton, we can see how theoretical concepts translate into actual computation.
