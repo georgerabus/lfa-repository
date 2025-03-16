@@ -22,8 +22,8 @@ The purpose of this project is to define a simple grammar, generate valid string
 
 ### Grammar Implementation  
 The grammar is defined using:  
-- **Non-terminals (VN)**: `{S, D, E, F, L}` – These are symbols that can be replaced.  
-- **Terminals (VT)**: `{a, b, c, d}` – These are symbols that cannot be replaced.  
+- **Non-terminals (VN)**: `{S, A, B, C}` – These are symbols that can be replaced.  
+- **Terminals (VT)**: `{a, b, c}` – These are symbols that cannot be replaced.  
 - **Production Rules (P)**: Define how symbols transition.  
 - **Start Symbol (S)**: The entry point of the language.  
 
@@ -51,8 +51,7 @@ The `FiniteAutomaton` class consists of:
 - **Transition Rules**:  
   - δ(q0, a) = q1  
   - δ(q1, b) = q2  
-  - δ(q1, a) = q3
-  - δ(q1, a) = q1  
+  - δ(q1, a) = q3, q1
   - δ(q0, b) = q2  
   - δ(q2, b) = q3
 
