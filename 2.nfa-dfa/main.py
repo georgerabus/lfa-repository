@@ -17,9 +17,9 @@ class Grammar:
         for non_terminal, productions in self.P.items():
             for production in productions:
                 if len(production) > 2:  # More than one non-terminal
-                    return "Context Free Grammar"
+                    return "Context Free Grammar (Type-2)"
                 if len(production) == 2 and not production[0].islower():  # First character should be terminal
-                    return "Context Free Grammar"
+                    return "Context Free Grammar (Type-2)"
 
         return "Regular Grammar (Type-3)"
 
