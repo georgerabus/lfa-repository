@@ -4,10 +4,10 @@ from collections import defaultdict, deque
 class Grammar:
     def __init__(self):
         self.VN = {'S', 'A', 'B', 'C'}
-        self.VT = {'a', 'b'}
+        self.VT = {'a', 'b', 'c'}
         self.P = {
             'S': ["aA", "bB"],
-            'A': ["bS", "cA, aB"],
+            'A': ["bS", "cA", "aB"],
             'B': ["aB", "b"],
         }
         self.S = 'S'
@@ -89,13 +89,13 @@ class FiniteAutomaton:
 
 if __name__ == "__main__":
     grammar = Grammar()
-    fa = FiniteAutomaton()
     print("Grammar Classification: ", grammar.classify_grammar())
     
     print("Generated strings:")
     for _ in range(5):
         print(grammar.generate_string())
     
+    fa = FiniteAutomaton()
     print("The FA is", "Deterministic" if fa.is_deterministic() else "Non-Deterministic")
     
     print("Regular Grammar Representation:")
