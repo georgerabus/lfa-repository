@@ -1,7 +1,7 @@
 # Lexer & Scanner
 
 ## Course: Formal Languages & Finite Automata  
-## Author: Chirtoaca Liviu  
+## Author: Rabus GeorgeS
 
 ## Theory  
 Lexers, also called lexical analyzers, are important tools in computer science and compiler design. They help break down source code into small parts called tokens, which represent elements like keywords, variables, numbers, and symbols. These tokens are then used by parsers to understand the code’s structure.
