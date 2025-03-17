@@ -10,14 +10,6 @@ The purpose of this project is to define a simple grammar, generate valid string
 
 ---
 
-## Objectives  
-- Understand the concept of formal languages and finite automata.  
-- Implement a grammar-based generator to create valid words.  
-- Convert the grammar into a finite automaton that can check string membership.  
-- Provide a simple C# implementation demonstrating these concepts.  
-
----
-
 ## Implementation Description  
 
 ### Grammar Implementation  
