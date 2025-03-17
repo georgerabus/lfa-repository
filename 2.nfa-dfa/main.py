@@ -45,7 +45,6 @@ class FiniteAutomaton:
             ("q1", 'a'): ["q3", "q1"],
             ("q0", 'b'): ["q2"],
             ("q2", 'b'): ["q3"],
-            # ("q1", 'a'): ["q1"]
         }
 
 
@@ -76,12 +75,12 @@ class FiniteAutomaton:
             for symbol in self.Alphabet:
                 new_state_set = set()
                 for state in current_set:
-                    if (state, symbol) in self.Transitions:
-                        new_state_set.update(self.Transitions[(state, symbol)])
+                    if (state, symbol) in self.Transitions: 
+                        new_state_set.update(self.Transitions[(state, symbol)]) #adds all reachable NDFA states
                 
                 if new_state_set:
-                    new_state_name = "".join(sorted(new_state_set))
-                    dfa_transitions[(state_name, symbol)] = new_state_name
+                    new_state_name = "".join(sorted(new_state_set)) # convert it into a DFA state
+                    dfa_transitions[(state_name, symbol)] = new_state_name # store the transition 
                     if new_state_name not in processed_states:
                         new_states.append(frozenset(new_state_set))
         

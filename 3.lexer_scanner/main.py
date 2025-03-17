@@ -10,7 +10,6 @@ Tokens = [
     [r'\A"""([\s\S]*?)"""', "BCOMMENT"],
     [r"\A\#.*$", "COMMENT"],
     [r"\A\bif\b", "IF"],
-    # [r"\A\belif\b", "ELIF"],
     [r"\A\belse\b", "ELSE"],
     [r"\A\blet\b", "DECLARATOR"],
     [r"\A[^\s\W\d]+", "VARIABLE"],
@@ -21,23 +20,21 @@ Tokens = [
     [r"\A\d+", "NUMBER"],
     [r'\A"[^"]*"', "STRING"],
     [r"\A'[^'']*'", "STRING"],
-    # [r'^\"(?:[^"\\]|\\.)*"', "STRING"],
-    # [r"^\'(?:[^'\\]|\\.)*'", "STRING"],
 ]
 
 class Tokenizer:
     def __init__(self, string):
         self._string = string
-        self._coursor = 0
+        self._cursor = 0
     
     def hasMoreTokens(self):
-        return self._coursor < len(self._string)
+        return self._cursor < len(self._string)
     
     def getNextToken(self):
         if not self.hasMoreTokens():
             return None
         
-        curr_string = self._string[self._coursor:]
+        curr_string = self._string[self._cursor:]
 
         for regex, literal_type in Tokens:
             match = re.findall(regex, curr_string, flags=re.MULTILINE)
@@ -45,15 +42,36 @@ class Tokenizer:
             if len(match) == 0:
                 continue
 
-            self._coursor += len(match[0])
+            self._cursor += len(match[0])
 
-            if literal_type in ["WHITESPACE", "BCOMMENT","COMMENT", "NEWLINE"]:
-                if literal_type == "BCOMMENT":
-                    self._coursor += 6
-
+            if literal_type in ["WHITESPACE", "BCOMMENT", "COMMENT"]:
                 return self.getNextToken()
             
             return {
                 "type": literal_type,
                 "value": match[0]
             }
+        
+        return None  # No valid token found
+
+    def tokenize(self):
+        tokens = []
+        while self.hasMoreTokens():
+            token = self.getNextToken()
+            if token:
+                tokens.append(token)
+        return tokens
+
+# Example usage:
+if __name__ == "__main__":
+    code = """
+    let x = 10;
+    if x == 10 {
+        # This is a comment
+        print("Hello");
+    }
+    """
+    tokenizer = Tokenizer(code)
+    tokens = tokenizer.tokenize()
+    for token in tokens:
+        print(token)

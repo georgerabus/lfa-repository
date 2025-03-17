@@ -4,38 +4,15 @@
 ## Author: Chirtoaca Liviu  
 
 ## Theory  
-Lexers, also known as lexical analyzers, are fundamental components in the field of computer sci-
-ence and compiler design. They play a crucial role in the process of converting source code into tokens that
-can be further processed by parsers.
-At its core, a lexer serves as the initial stage of a compiler or interpreter. Its primary task is to
-break down the input source code into meaningful units called tokens. These tokens represent the smallest
-identifiable elements of the language syntax, such as keywords, identifiers, operators, and literals. By
-tokenizing the input, lexers lay the groundwork for subsequent phases of compilation or interpretation,
-facilitating syntactic analysis and semantic processing.
-The process of lexing involves scanning the input character stream and categorizing characters or
-sequences of characters into distinct token types based on predefined rules. These rules are typically spec-
-ified using formal languages such as regular expressions or finite automata. Each rule corresponds to a
-particular token type, defining the patterns that constitute valid tokens in the language grammar.
-Lexers employ various techniques to efficiently tokenize the input source code. One common ap-
-proach is the use of deterministic finite automata (DFA), which provide a systematic method for recognizing
-token patterns. DFA-based lexers traverse the input character by character, transitioning between states ac-
-cording to the defined rules until a token boundary is reached. This deterministic process ensures linear
-time complexity, making lexing computationally efficient even for large input files.
-Another key concept in lexer theory is the notion of lexical analysis phases. Lexing is often divided
-into multiple phases, each responsible for handling different aspects of tokenization. These phases may
-include preprocessing, where whitespace and comments are discarded, and lexical scanning, where tokens
-are identified and classified. By breaking down the lexing process into distinct stages, lexers can be designed
-and optimized more effectively, enhancing modularity and maintainability.
-Lexers also play a crucial role in error handling and reporting within compilers and interpreters.
-During lexing, lexical errors such as invalid characters or unrecognized tokens may be encountered. Lexers
-are responsible for detecting and diagnosing these errors, providing meaningful feedback to the user to aid
-in debugging. Error recovery mechanisms may also be incorporated into lexers to gracefully handle syntax
-errors and resume tokenization without disrupting the compilation or interpretation process.
-In addition to traditional compilers, lexers find application in various other domains, including text
-processing, parsing, and language recognition. They serve as building blocks for tools such as syntax
-highlighters, code formatters, and static analyzers, enhancing the development experience and improving
-code quality.
+Lexers, also called lexical analyzers, are important tools in computer science and compiler design. They help break down source code into small parts called tokens, which represent elements like keywords, variables, numbers, and symbols. These tokens are then used by parsers to understand the code’s structure.
 
+A lexer works by reading the input code character by character and grouping them into tokens based on predefined rules. These rules are often defined using regular expressions or finite automata. One common method is using a deterministic finite automaton (DFA), which ensures fast and efficient tokenization by following a structured path through different states.
+
+Lexers usually perform their tasks in stages. First, they remove unnecessary parts like spaces and comments. Then, they identify tokens and classify them. This step-by-step approach makes lexers more organized and easier to maintain.
+
+Another important job of a lexer is handling errors. If it encounters an invalid character or an unknown sequence, it reports the issue to help programmers fix their code. Some lexers also try to recover from errors and continue processing instead of stopping completely.
+
+Beyond compilers, lexers are used in many applications like syntax highlighters, code formatters, and text analyzers, making them useful tools for programming and text processing.
 ---
 
 ## Objectives  
@@ -126,24 +103,14 @@ def getNextToken(self):
 ```
 
 ---
-<!-- ## Results
-![Consola](/Images/token.png)
-![Consola2](/Images/summary.png)
----   -->
+## Results
+![Consola](/Images/lexer-code.png)
+![Consola2](/Images/lexer.png)
+
 # Conclusion
 
-In this lab, I developed a lexer to tokenize a given string into defined tokens based on specified
-delimiters. The process involved defining tokens and their corresponding regex delimiters, initializing a
-Tokenizer class, and implementing tokenization logic.
-Firstly, I defined the tokens and delimiters using a list of lists structure, facilitating the association
-between token names and their regex patterns.
-Next, I instantiated a Tokenizer class, equipped with variables for the input string and a cursor to
-track traversal progress.
-The tokenization process involved recursively matching tokens within the string by iterating through
-each token and comparing its regex pattern with the current substring. Whitespace and comments were
-skipped by advancing the cursor, ensuring only valid tokens were identified.
-Upon encountering a valid token, the cursor was shifted, and the lexeme was returned as a dictionary
-containing the token type and its corresponding value.
-Through this lab, I gained hands-on experience with lexer implementation, understanding the im-
-portance of token definition, cursor management, and recursive tokenization methods. This knowledge lays
-a foundation for further exploration into language processing and compiler design
+In this lab, I built a lexer to break a string into tokens based on predefined rules. The process involved defining token types, setting up a tokenizer class, and implementing the logic for scanning the input.
+
+First, I created a list of token names paired with regular expressions to match them. Then, I set up a Tokenizer class, which stores the input string and tracks progress using a cursor.
+
+The lexer scanned the string by checking each part against the token patterns. It skipped spaces and comments to focus only on meaningful tokens. When a match was found, the lexer recorded the token type and value, then moved the cursor forward.

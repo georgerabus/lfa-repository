@@ -99,4 +99,8 @@ Converts a Non-Deterministic Finite Automaton (NDFA) to a Deterministic Finite A
 ---
 
 ## Conclusion  
-This project demonstrates how formal languages and finite automata work together to define structured word formation and validation. By implementing a grammar-based generator and a basic automaton, we can see how theoretical concepts translate into actual computation.
+This project shows how formal languages and finite automata help define and check the structure of words in a language. By creating a simple grammar, we can generate valid words based on a set of rules. The finite automaton helps us verify whether a given word belongs to the language.
+
+We also explored the difference between deterministic and non-deterministic automata. While NDFA allows multiple possible transitions for the same input, converting it into a DFA makes processing easier by ensuring only one path exists for each input.
+
+Overall, this project connects theory to real-world applications, like programming language compilers and search engines, which rely on automata for pattern recognition and text processing. Understanding these concepts helps in building more efficient algorithms and software systems.
