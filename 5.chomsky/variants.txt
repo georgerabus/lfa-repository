@@ -1,0 +1,21 @@
+
+Variant 26
+1. Eliminate & productions.
+2. Eliminate any renaming. 3.Eliminate inaccessible symbols.
+4. Eliminate the non productive symbols. 
+5. Obtain the Chomsky Normal Form.
+
+G=(Vn, Vt, P, S) Vn={S, A, B, D} Vt={a, b, d}
+
+P={
+1. S → aBA
+2. S → AB
+3. A → d
+4. A → dS
+5. A → AbBA
+6. A → ε
+7. B → a
+8. B → aS
+9. B → A
+10.D → Aba
+}
