@@ -95,7 +95,7 @@ then we just move the value of C to A
 C: aB
 A: aB
 
-### EsliGoraNeIdeotKMohamedu...:
+### moveNonTerminals:
 
 ```py
 def moveNonTerminals(self):

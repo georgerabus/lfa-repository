@@ -25,7 +25,7 @@ class Grammar:
         self.productions["S0"] = ["S", "ɛ"]
                 
     def removeEmptyStates(self):
-        def getAllEpsilonNonTerminals():
+        def getAllEpsilonNonTerminals(): #
             epsilonNonTerminals = set()
             def dfs(bad_value="ɛ"):
                 for non_terminal in self.productions.keys():
@@ -37,7 +37,7 @@ class Grammar:
             dfs()
             return epsilonNonTerminals
     
-        def getEpsilonEmptyProduction(productions):
+        def getEpsilonEmptyProduction(productions): #
             res = set()
             def dfs(ignore=set()):
                 if len(productions) == 1:
@@ -58,7 +58,7 @@ class Grammar:
             dfs()
             return res
         
-        epsilonNonTerminals = getAllEpsilonNonTerminals()
+        epsilonNonTerminals = getAllEpsilonNonTerminals() #
         for non_terminal in epsilonNonTerminals:
             for production_id in range(len(self.productions[non_terminal])):
                 production = self.productions[non_terminal][production_id]
@@ -73,7 +73,7 @@ class Grammar:
                     self.productions[non_terminal].remove("ɛ")
                     break
                     
-    def moveNonTerminals(self):
+    def moveNonTerminals(self): #
         changed = True
         while changed:
             changed = False
