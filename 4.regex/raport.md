@@ -1,13 +1,14 @@
 # Topic: Regular expressions
 
 ### Course: Formal Languages & Finite Automata
-### Author: Cretu Dumitru and kudos to the Vasile Drumea with Irina Cojuhari
-
-### Made by George Rabus
+### Author: Rabus George    
 
 ----
 
-# Objectives:
+## Theory
+Regular expressions (regex) are symbolic notations used to describe patterns in strings. They are commonly applied in fields such as compilers, data validation, and search engines. In this project, we aim to simplify a subset of regex patterns and generate example strings that match these patterns. Additionally, we provide a step-by-step explanation of how the patterns are interpreted using basic regex constructs and quantifiers.
+
+## Objectives:
 
 1. Write and cover what regular expressions are, what they are used for;
 
@@ -21,30 +22,56 @@
 
 Write a good report covering all performed actions and faced difficulties.
 
-## Variant 3:
 
+## Implementation description
+
+### Regex Parsing (parse_regex)
+This function reads the input regex string and converts it into a list of rule dictionaries. It supports basic quantifiers (+, *, ?, and a custom ^n) and handles character choices in parentheses like (A|B|C).
+
+### Rule-based String Generation (generate_string_from_rules)
+This function uses the parsed rules to generate strings that match the intended regex structure. It repeats or omits characters based on the quantifier or exact count provided.
+
+### Quantifier Interpretation (determine_count)
+A helper function that decides how many times a character or group should be repeated based on the quantifier attached (e.g., + means 1 to 5 times).
+
+### Regex Explanation (explain_regex_processing)
+This function provides a detailed breakdown of how the regex is interpreted rule-by-rule in plain English, making it suitable for educational purposes.
+
+### Main Driver
+Runs three test patterns, prints out the step-by-step explanations, and displays generated string outputs.
+
+## Code snippet
+
+```py
+def parse_regex(pattern):
+    """Parse a regex pattern into a list of rules"""
+    ...
 ```
-O(P|Q|R)+2(3|4)
-A*B(C|D|E)F(G|H|i)^2
-J+K(L|u|N)*O?(P|Q)^3
+```py
+def generate_string_from_rules(rules):
+    """Generate a string that follows the given regex rules"""
+    ...
 ```
+```py
+if __name__ == "__main__":
+    patterns = [
+        "O(P|Q|R)+2(3|4)",
+        "A*B(C|D|E)F(G|H|i)^2",
+        "J+K(L|u|N)*O?(P|Q)^3"
+    ]
+    
+    for i, pattern in enumerate(patterns):
+        ...
+```
+![Output](image.png)
 
-Examples of what must be generated:
 
-{OPP23, OQQQQ24, ...}
-{AAABCFGG, AAAAAABDFHH, ...}
-{JJKLOPPP, JKNQQQ, ...}
+## Conclusions / Screenshots / Results
 
-# Evaluation:
+This project demonstrates how simplified regular expressions can be parsed, interpreted, and used to generate matching strings. By breaking down the regex into understandable rules and simulating quantifiers, we provide both a learning tool and a string generation utility. The implementation bridges theoretical concepts from formal languages with practical programming, reinforcing the importance of understanding how pattern-matching systems work under the hood.
 
-1. Project must be located in a *public* repository on a GitHub;
+Through this work, we not only deepen our understanding of regex syntax and semantics but also practice how to implement finite automata-like behavior in code. This kind of project strengthens skills in pattern recognition, control flow, and parsing—fundamental areas in both compiler design and text processing applications.
 
-2. Explain performed work in details and cover how the code works;
+Overall, it highlights how theoretical foundations from formal languages and automata are directly applicable to real-world problems in computer science.
 
-3. Present your work to see the program works and to ask questions if necessary;
-
-4. **Upload link to the ELSE** (I understand that you're giving access mostly to the same repo as previous labs, but it eases my experience to verify all your labs and assignment on ELSE is closed - all win);
-
-5. Deadline is 30-th March, 2025, 23:59
-
-6. You have to present the lab and in case if you don't - max grade decreases by 1 per week of delay.
+## References

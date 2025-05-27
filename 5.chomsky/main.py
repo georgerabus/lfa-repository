@@ -96,7 +96,7 @@ class Grammar:
                 # Update productions for this non-terminal
                 self.productions[non_terminal] = new_productions
             
-    class Iterator():
+    class Iterator(): #
         def __init__(self, data, iterr=0):
             self.data = data
             self.iter = iterr

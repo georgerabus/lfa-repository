@@ -1,6 +1,6 @@
 from Tokenizer import *
 
-class Parser:
+class Parser: # 
     def parse(self, string):
         self._string = string
         self._tokenizer = Tokenizer(string)
@@ -9,15 +9,14 @@ class Parser:
 
         return self.Program()
     
-    def Program(self):
+    def Program(self): #
         return {
             "type": "Program",
             "body": self.StatementList()
         }
     
 
-    # StatementList : Statement | StatementList Statement ;
-    def StatementList(self):
+    def StatementList(self): #
         statementList = []
         
         while self._lookahead != None:
@@ -112,7 +111,7 @@ class Parser:
         }
     
     # Expression : Literal ;
-    def Expression(self):
+    def Expression(self): # 
         return self.BinaryExpression()
     
     # Variable : VARIABLE ;
@@ -202,7 +201,7 @@ class Parser:
             "value": token["value"]
         }
     
-    def _eat(self, tokenType):
+    def _eat(self, tokenType): #
         token = self._lookahead
 
         if token == None:
